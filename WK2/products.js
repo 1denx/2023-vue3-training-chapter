@@ -26,8 +26,7 @@ const app = {
         getData() {
             axios.get(`${this.apiUrl}/api/${this.apiPath}/admin/products`)
                 .then((res) => {
-                    console.log(res.data)
-                    this.products = response.data.products;
+                    this.products = res.data.products;
                 })
                 .catch((err) => {
                     console.log(err)
