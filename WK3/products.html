@@ -108,7 +108,7 @@
                   <!-- Array 原生方法去判斷是否是 array -->
                   <div class="mb-2" v-if="Array.isArray(tempProduct.imagesUrl)">
                     <div
-                      v-for="(img,key) in tempProduct.imagesUrl"
+                      v-for="(image,key) in tempProduct.imagesUrl"
                       :key="key"
                       class="mb-3"
                     >
@@ -126,24 +126,25 @@
                       </div>
                       <img class="img-fluid" :src="image" />
                     </div>
-                  </div>
-                  <div
-                    v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length -1]"
-                  >
-                    <button
-                      class="btn btn-outline-primary btn-sm d-block w-100"
-                      @click="tempProduct.imagesUrl.push('')"
+                    <div
+                      v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]"
                     >
-                      新增圖片
-                    </button>
-                  </div>
-                  <div v-else>
-                    <button
-                      class="btn btn-outline-danger btn-sm d-block w-100"
-                      @click="tempProduct.imagesUrl.pop()"
-                    >
-                      刪除圖片
-                    </button>
+                      <!-- 若陣列為空或最後一個元素為真，則顯示「新增圖片」按鈕；否則，顯示「刪除圖片」按鈕 -->
+                      <button
+                        class="btn btn-outline-primary btn-sm d-block w-100"
+                        @click="tempProduct.imagesUrl.push('')"
+                      >
+                        新增圖片
+                      </button>
+                    </div>
+                    <div v-else>
+                      <button
+                        class="btn btn-outline-danger btn-sm d-block w-100"
+                        @click="tempProduct.imagesUrl.pop()"
+                      >
+                        刪除圖片
+                      </button>
+                    </div>
                   </div>
                   <div v-else>
                     <button
